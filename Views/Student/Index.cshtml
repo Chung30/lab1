@@ -4,6 +4,20 @@
 @{
 }
 
+@{
+    ViewData["Title"] = "Student List";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section Scripts{
+    <script>
+        var table = document.querySelector("table");
+        table.onclick = function onClick() {
+            table.style = "background-color: yellow;"
+        }
+    </script>
+}
+
 @model IEnumerable<Student>
 <a asp-action="Create" class="btn btn-primary">Create Student</a>
 <table class="table table-striped">
@@ -17,6 +31,7 @@
             <th>Hệ ĐT</th>
             <th>Địa chỉ</th>
             <th>Email</th>
+            <th>Điểm</th>
         </tr>
     </thead>
     <tbody>
@@ -52,6 +67,7 @@
                 <td>@(s.IsRegular ? "Chính quy" : "Phi chính quy")</td>
                 <td>@s.Address</td>
                 <td>@s.Email</td>
+                <td>@s.Mark</td>
             </tr>
         }
     </tbody>
